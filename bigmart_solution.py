@@ -1,8 +1,8 @@
 """
-BigMart Sales Prediction - final solution
+BigMart Sales Prediction
 =========================================
 Model: 0.7 x "physics" model (on recovered true price)  +  0.3 x CatBoost
-v2: sales decoded as base_price x whole units; MRP jitter removed.
+v2: sales decoded as base_price x whole units
 
 Key finding from 5-fold CV (3 seeds):
   Sales ~= Item_MRP x (units-sold rate of the outlet).
@@ -10,8 +10,6 @@ Key finding from 5-fold CV (3 seeds):
   GBM (CatBoost 1075.1, XGBoost 1078.9, LightGBM 1082.6).
   Item identity, visibility, weight, etc. add no reliable signal; they only add variance.
   CatBoost is blended in at 30% for diversity / private-leaderboard robustness.
-
-Run:  python bigmart_solution.py   (data files sit beside this script)
 Deps: pandas, numpy, scikit-learn, catboost
 """
 from pathlib import Path
